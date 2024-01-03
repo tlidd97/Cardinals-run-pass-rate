@@ -98,37 +98,10 @@ ARItbl <- ARI_runpass |>
   gt_theme_pff()
 gtsave(ARItbl, "ARIrunpasstbl.png")
  
-#I am following Arjun Menon's youtube video on the MFANs channel but use the Arizona Cardinlas instead of the Buffalo Bills#
+#I am following Arjun Menon's youtube video "Scouting Team Tendencies with NFL Data in R (2023)" but use the Arizona Cardinlas instead of the Buffalo Bills#
   
   
   
-  
-  
-
-  
-BUFtbl <- BUF_runpass |>
-  select(full_name, position, team_wordmark, snapsplayed, passrate, rushrate, PROE) |>
-  ungroup() |>
-  arrange(-snapsplayed) |>
-  gt() |>
-  gt_img_rows(team_wordmark) |>
-  fmt_percent(columns = c(passrate, rushrate, PROE), decimals = 2) |>
-  opt_align_table_header("center") |>
-  cols_align("center") |>
-  tab_source_note("Table: Taylor Liddicoat | Data: nflreadr") |>
-  cols_label(
-    full_name = "Player",
-    position = "Position",
-    team_wordmark = "Offense",
-    snapsplayed = "Snaps",
-    passrate = "Pass Rate",
-    rushrate = "Rush Rate",
-    PROE = "Pass Rate Over Expected"
-  ) |>
-  opt_row_striping() |>
-  tab_header(title = "Bills run/pass rate by player in 2023") |>
-  gt_theme_pff()
-gtsave(BUFtbl, "BUFrunpasstbl.png")
 
 
 
